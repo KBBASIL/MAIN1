@@ -9,6 +9,8 @@
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
+#include <stdexcept>
+#include <chrono>
 
 using std::accumulate;
 using std::string;
@@ -26,7 +28,7 @@ using std::ifstream;
 using std::ostream;
 using std::cerr;
 using std::getline;
-
-
-
-
+using std::runtime_error;
+using std::exception;
+using std::ofstream;
+using namespace std::chrono;
