@@ -1,7 +1,18 @@
 
 
 #include "Lib.h"
+class Timer{
+public:
+ using clock = std::chrono::high_resolution_clock;
 
+std::chrono::time_point<clock> start, temp;
+   std::chrono::duration <double> executiontime;
+
+void timestart( ) ;
+void timetaken();
+};
+void outputtemplate ();
+void filegenerator (const string& filename, size_t n);
 class Person
 {
     public:
@@ -13,6 +24,7 @@ class Person
 
 
     void FinalAv();
+
      double med();
     void FinalMed();
     Person ();

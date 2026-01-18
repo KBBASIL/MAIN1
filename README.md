@@ -1,20 +1,21 @@
 Student Grades Calculator
-This C++ program provides a streamlined way to enter, compute, and organize student grades. It handles homework and exam scores dynamically using modern object‑oriented design, including a full implementation of the Rule of Three. Users can calculate final grades using either the average or the median of homework results, import data from external files, or generate scores automatically. The application produces neatly formatted tables sorted by name or surname, making it suitable for both small and large student datasets. The codebase follows C++ best practices and is designed to be clear, modular, and easy to expand.
 
-Key Features
-Flexible homework input using std::vector
+This C++ application enables users to input, calculate, and manage student grades efficiently. It supports dynamic handling of homework and exam scores using modern object-oriented programming principles, including the Rule of Three. Users can choose between average or median calculations for final grades and import student data from files or generate scores randomly. The program outputs well-formatted tables sorted by student name or surname, making it ideal for educational use and large datasets. All code is developed following C++ best practices and is structured for clarity, extensibility, and ease of use.
 
-Final grade calculation based on either average or median
+Features:
 
-Optional random generation of homework and exam scores
+Dynamic homework assignment handling with std::vector
 
-Ability to load student data from a file
+Calculation of final grades by average or median (user's choice)
 
-Clean, aligned output sorted by name or surname
+Support for random score generation and data file import
 
-Person class implemented with the full Rule of Three
+Clean, formatted output sorted by name or surname
 
-Well‑structured and easily maintainable code
+Full implementation of the Rule of Three in the Person class
 
-Final Grade Formula
-Final Grade = 0.4 × (Homework Average or Median) + 0.6 × Exam
+Easily extendable and well-documented source code
+
+Final grade is calculated as:
+
+**Final Grade = 0.4 × (Homework Average/Median) + 0.6 × Exam**
