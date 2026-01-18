@@ -9,10 +9,6 @@
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
-#include <stdexcept>
-#include <chrono>
-#include <list>
-#include <deque>
 
 using std::accumulate;
 using std::string;
@@ -30,12 +26,7 @@ using std::ifstream;
 using std::ostream;
 using std::cerr;
 using std::getline;
-using std::runtime_error;
-using std::exception;
-using std::ofstream;
-using namespace std::chrono;
 
-using std::list;
-using std::deque;
-using std::copy_if;
-using std::back_inserter;
+
+
+

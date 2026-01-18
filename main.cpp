@@ -3,82 +3,38 @@
 
 int main()
 {
+    ifstream file("Students.txt");
+    if (!file)
+    {
+        cerr << "Failed to open Students.txt ";
+    }
 
-    //filegenerator ("students10000.txt",10000);
-    //filegenerator ("students100000.txt",100000);
-    //filegenerator ("students1000000.txt",1000000);
-    //filegenerator ("students10000000.txt",10000000);
 
-    list <Person> pass;
-    list <Person> fail;
+    string header;
+    getline(file, header);
 
-    Timer timer;
+    vector <Person> students;
+    Person temp;
 
-    try {
-        timer.timestart();
+    while (file >> temp)
 
-        ifstream file("students100000.txt");
-cout<<"Time taken to read file : " << endl;
-        timer.timetaken();
+    {
+        students.push_back(temp);
+    }
+    // sorting by firstname
+    std::sort(students.begin(), students.end(), [](const Person& a, const Person& b) {
+        return a.firstname < b.firstname;
 
-        if (!file) {
-            throw runtime_error("Failed to open Students.txt");
-        }
-
-        string header;
-
-       if (!getline(file, header)){ throw runtime_error ( " Failed to read the header row") ; }
-
-        list<Person> students;
-        Person temp;
-
-        while (file >> temp) {
-            students.push_back(temp);
-        }
-        timer.timestart();
-        // sorting by firstname
-        students.sort([](const Person& a, const Person& b) {
-    return a.firstname < b.firstname;
-});
-cout<<"Time taken to sort file : " << endl;
-       timer.timetaken();
-
-        timer.timestart();
-     auto passsplit = [](const Person& s) {
-            return (s.FinalgradeAvg >= 5) || (s.FinalgradeMed >= 5);
-        };
-
-        copy_if(students.begin(), students.end(), back_inserter(pass), passsplit);
-        students.remove_if(passsplit);
-
-       cout<<"Time taken to split file : " << endl;
- timer.timetaken();
-
-timer.timestart();
-        // Output
-        cout << "PASSED" << endl;
-       outputtemplate();
-
-       ofstream passout("passed.txt");
-       passout << left << setw(15) << "Name" << setw(15) << "Surname"
-             << setw(20) << "Final (Avg.)" << setw(5) << "|" << "Final (Med.)" << endl;
+    });
 
 
 
-       for (const auto& s : pass)
-       {
-           passout << s;
-           cout<<s<<endl;
-       }
-
-
-       cout<<"Time taken to output two new files : " << endl;
- timer.timetaken();
-
-    } catch (const exception& e) {
-        cerr << "Error: " << e.what() << endl;
-        return 1;
+    // Output
+    cout << left << setw(15) << "Name" << setw(15) << "Surname" << setw(20) << "Final (Avg.)" << setw(5) << "|" << "Final (Med.)" << endl;
+    cout << "--------------------------------------------------------------------" << endl;
+    for (const auto &s : students) {cout << s << endl;
     }
 
     return 0;
 }
+
